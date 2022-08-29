@@ -1,0 +1,277 @@
+- if game.PlaceId == 1537690962 then
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "DenisHub", HidePremium = false, IntroText = "DenisHub", SaveConfig = true, ConfigFolder = "false"})
+
+ 
+ 
+--Values
+_G.autoDrop = true
+_G.autoClick = true
+_G.AutoVial = true
+_G.RedFieldBooster = true
+_G.BlueFieldBooster = true
+_G.AutoDig = true
+_G.AutoDiaMask = true
+_G.AutoDemonMask = true
+_G.AutoHoneyMask = true
+_G.AutoGummyMask = true
+_G.AutoFireMask = true
+_G.AutoBubbleMask = true
+_G.FieldBooster = true
+
+
+
+
+
+--Function
+function FieldBooster()
+    while _G.FieldBooster == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Field  Booster")
+        wait(0.0000001)
+     end
+end
+function getbubblemask()
+    while _G.AutoBubbleMask == true do
+        game:GetService("ReplicatedStorage").Events.ItemPackageEvent:InvokeServer("Equip",{["Mute"] = false,["Type"] = "Bubble Mask",["Category"] = "Accessory"})
+     end  
+end
+function getfiremask()
+    while _G.AutoFireMask == true do
+        game:GetService("ReplicatedStorage").Events.ItemPackageEvent:InvokeServer("Equip",{["Mute"] = false,["Type"] = "Fire Mask",["Category"] = "Accessory"})
+     end  
+end
+function getgummymask()
+    while _G.AutoGummyMask == true do
+        game:GetService("ReplicatedStorage").Events.ItemPackageEvent:InvokeServer("Equip",{["Mute"] = false,["Type"] = "Gummy Mask",["Category"] = "Accessory"})
+     end  
+end
+function gethoneymask()
+    while _G.AutoHoneyMask == true do
+        game:GetService("ReplicatedStorage").Events.ItemPackageEvent:InvokeServer("Equip",{["Mute"] = false,["Type"] = "Honey Mask",["Category"] = "Accessory"})
+     end  
+end
+function getdemonmask()
+    while _G.AutoDemonMask == true do
+        game:GetService("ReplicatedStorage").Events.ItemPackageEvent:InvokeServer("Equip",{["Mute"] = false,["Type"] = "Demom Mask",["Category"] = "Accessory"})
+     end  
+end
+function getdiamask()
+    while _G.AutoDiaMask == true do
+        game:GetService("ReplicatedStorage").Events.ItemPackageEvent:InvokeServer("Equip",{["Mute"] = false,["Type"] = "Diamond Mask",["Category"] = "Accessory"})
+     end  
+end
+function AutoDig()
+    while _G.AutoDig == true    do
+            workspace["1HourBeeSwarm2020"]["Petal Wand"].ClickEvent:FireServer()
+        wait(0.00000001)
+     end
+end
+function BlueFieldBooster()
+    while _G.BlueFieldBooster == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Blue Field Booster")
+        wait(.00000000000000000001)
+     end
+end
+function RedFieldBooster()
+    while _G.RedFieldBooster == true do
+        game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Red Field Booster")
+        wait(.00000000000000000001)
+     end
+end
+function AutoVial()
+    while _G.AutoVial == true do
+        game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({["Name"] = "Cloud Vial"})
+        wait(170)
+     end
+end
+function autoClick()
+    while _G.autoClick == true  do
+        game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({["Name"] = "Gumdrops"})
+        wait(10)
+    end
+end
+
+function autoDrop()
+    while _G.autoDrop == true do
+        game:GetService("ReplicatedStorage").Events.PlayerActivesCommand:FireServer({["Name"] = "Jelly Beans"})
+        wait(.000001)
+     end
+end
+
+
+
+--Tabs
+
+local Tab = Window:MakeTab({
+	Name = "Euqip Masks",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "Get Diamond Mask",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoDiaMask = Value
+        getdiamask()
+	end    
+})
+
+Tab:AddToggle({
+	Name = "Get Demon Mask",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoDemonMask = Value  
+        getdemonmask()
+	end    
+})
+Tab:AddToggle({
+	Name = "Get Gummy Mask",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoGummyMask = Value  
+        getgummymask()
+	end    
+})
+
+Tab:AddToggle({
+	Name = "Get Honey Mask",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoHoneyMask = Value  
+        gethoneymask()
+	end    
+})
+ 
+Tab:AddToggle({
+	Name = "Get Fire Mask",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoFireMask = Value  
+        getfiremask()
+	end    
+})
+Tab:AddToggle({
+	Name = "Get Bubble Mask",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoBubbleMask = Value  
+        getbubblemask()
+	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Auto Farm",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+
+
+-- Toogles
+
+
+
+
+Tab:AddToggle({
+	Name = "Start Farm",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+Tab:AddDropdown({
+	Name = "Fields",
+	Default = "1",
+	Options = {"Sunflower", "Mushroom", "Dandelion", "Clover", "Bluf", "Spider", "Strawberry", "Bamboo", "Pinapple", "Rose", "Cactus", "Pine", "Pumpkin", "Mount", "Stump", "Pepper", "Coconut"},
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+Tab:AddToggle({
+	Name = "Auto Dig",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoDig = Value
+        AutoDig()
+    end
+})
+
+
+Tab:AddToggle({
+	Name = "Gumdrop",
+	Default = false,
+	Callback = function(Value)
+		_G.autoClick = Value
+        autoClick()
+	end    
+})
+
+Tab:AddToggle({
+	Name = "JellyBean",
+	Default = false,
+	Callback = function(Value)
+		_G.autoDrop = Value
+        autoDrop()
+    end
+})
+
+Tab:AddToggle({
+	Name = "Auto CloudVial",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoVial = Value
+        AutoVial()
+    end
+})
+
+local Tab = Window:MakeTab({
+	Name = "Boosters",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddToggle({
+	Name = "Red Field Booster",
+	Default = false,
+	Callback = function(Value)
+		_G.RedFieldBooster = Value
+        RedFieldBooster()
+    end
+})
+
+Tab:AddToggle({
+	Name = "Blue Field Booster",
+	Default = false,
+	Callback = function(Value)
+		_G.BlueFieldBooster = Value
+        BlueFieldBooster()
+    end
+})
+
+Tab:AddToggle({
+	Name = "Field Booster",
+	Default = false,
+	Callback = function(Value)
+		_G.FieldBooster = Value
+         FieldBooster()
+    end
+})
+
+
+
+
+
+for _, part in next, workspace:FindFirstChild("FieldDecos"):GetDescendants() do if part:IsA("BasePart") then part.CanCollide = false part.Transparency = part.Transparency < 0.0 and 0.0 or part.Transparency task.wait() end end
+for _, part in next, workspace:FindFirstChild("Decorations"):GetDescendants() do if part:IsA("BasePart") and (part.Parent.Name == "Bush" or part.Parent.Name == "Blue Flower") then part.CanCollide = false part.Transparency = part.Transparency < 0.0 and 0.0 or part.Transparency task.wait() end end
+for i,v in next, workspace.Decorations.Misc:GetDescendants() do if v.Parent.Name == "Mushroom" then v.CanCollide = false v.Transparency = 0.0 end end
+
+
+
+
+end
+Orion:Init()
